@@ -20,7 +20,7 @@ from PyQt5 import Qt
 from argparse import ArgumentParser
 from gnuradio.eng_arg import eng_float, intx
 from gnuradio import eng_notation
-import Práctica_1_epy_block_0_0_0 as epy_block_0_0_0  # embedded python block
+import Práctica_1_epy_block_0_0_0_0 as epy_block_0_0_0_0  # embedded python block
 import sip
 import threading
 
@@ -164,7 +164,7 @@ class Práctica_1(gr.top_block, Qt.QWidget):
 
         self._qtgui_time_sink_x_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0.qwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_win)
-        self.epy_block_0_0_0 = epy_block_0_0_0.blk()
+        self.epy_block_0_0_0_0 = epy_block_0_0_0_0.blk()
         self.blocks_vector_source_x_0 = blocks.vector_source_f((1, 1, 1, 1,1, 1, 1, 1,1, 1, 1, 1,1, 1, 1, 1,1, 1, 1, 1,1, 1, 1, 1,1, 1, 1, 1,1, 1, 1, 1,-1, -1, -1, -1,-1, -1, -1, -1,-1, -1, -1, -1,-1, -1, -1, -1,-1, -1, -1, -1,-1, -1, -1, -1,-1, -1, -1, -1,-1, -1, -1, -1), True, 1, [])
         self.blocks_throttle2_0 = blocks.throttle( gr.sizeof_float*1, samp_rate, True, 0 if "auto" == "auto" else max( int(float(0.1) * samp_rate) if "auto" == "time" else int(0.1), 1) )
 
@@ -173,9 +173,9 @@ class Práctica_1(gr.top_block, Qt.QWidget):
         # Connections
         ##################################################
         self.connect((self.blocks_throttle2_0, 0), (self.qtgui_time_sink_x_0, 0))
-        self.connect((self.blocks_vector_source_x_0, 0), (self.epy_block_0_0_0, 0))
+        self.connect((self.blocks_vector_source_x_0, 0), (self.epy_block_0_0_0_0, 0))
         self.connect((self.blocks_vector_source_x_0, 0), (self.qtgui_time_sink_x_0_0, 0))
-        self.connect((self.epy_block_0_0_0, 0), (self.blocks_throttle2_0, 0))
+        self.connect((self.epy_block_0_0_0_0, 0), (self.blocks_throttle2_0, 0))
 
 
     def closeEvent(self, event):

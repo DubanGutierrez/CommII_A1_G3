@@ -5,25 +5,21 @@ class blk(gr.sync_block):
     def __init__(self):
         gr.sync_block.__init__(
             self,
-            name='e_Diff',         # aparecerá en GRC
+            name='diferenciador',   # aparecerá en GRC
             in_sig=[np.float32],
             out_sig=[np.float32]
         )
-        self.acum_anterior = 0.0  # acumulador anterior
+        self.last_sample = 0.0   # última muestra del bloque anterior
 
     def work(self, input_items, output_items):
-        x = input_items[0]   # Señal de entrada
-        y0 = output_items[0] # Señal acumulada diferencial
+        x = input_items[0]   # señal de entrada
+        y0 = output_items[0] # señal de salida (diferenciada)
 
-        # número de muestras en este bloque
-        N = len(x)
+        # Calcular diferencias
+        y0[0] = x[0] - self.last_sample   # primera diferencia usando la memoria
+        y0[1:] = np.diff(x)               # diferencias dentro del bloque
 
-        # suma acumulativa con offset del bloque anterior
-        diff = np.cumsum(x) + self.acum_anterior
+        # Guardar la última muestra del bloque actual
+        self.last_sample = x[-1]
 
-        # guardar último valor para el siguiente bloque
-        self.acum_anterior = diff[-1]
-
-        # salida
-        y0[:] = diff
         return len(y0)
