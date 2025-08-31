@@ -1,76 +1,92 @@
-    \documentclass[conference,spanish]{IEEEtran}
-\IEEEoverridecommandlockouts
-% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
-%Template version as of 6/27/2024
-\usepackage{cite}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{algorithmic}
-\usepackage{algpseudocode}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
-\usepackage{graphicx}
-\usepackage{textcomp}
-\usepackage[utf8]{inputenc}
-\usepackage{circuitikz}
-\usepackage{xcolor}
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
-\begin{document}
-\title{\textbf{Formulacion de proyecto}}
+# Laboratorio 2. Programación en Radio Definida por Software (GNU Radio)  
 
-\author{{Mendoza Aguirre Juan David, juan2220419@correo.uis.edu.co}\\
-{Pacheco Jurado Edward Andres, edward2222236@correo.uis.edu.co}\\
-{Álbarracin Contreras Joseph Thomas, joseph2220415@correo.uis.edu.co}}
+**Autores:**  
+Danny Carolina Sierra Téllez (2220409), Duban Andretti Gutierréz León (2220396)  
+Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones  
+Universidad Industrial de Santander  
 
-\maketitle
+**Fecha:** 31 de agosto de 2025  
 
+---
 
-\section{Introducción y descripcion del proyecto }
-El estudio del procesamiento digital de señales de audio en el campo de la ingenieria electronica en la actualidad es fundamental debido a las distintas aplicaciones que tienen en el campo que van desde interpretar mensajes a diferenciar voces por medio de la frecuencia de la voz.
+## Abstract
+This paper presents the implementation of concepts related to Software Defined Radio (SDR) using GNU Radio. The work included the use of GitHub repositories in a collaborative environment and the development of Python blocks such as accumulator, differentiator, and statistical operators for signal analysis in the time domain. These implementations strengthened the understanding of digital communication systems in real time and demonstrated the flexibility of GNU Radio for the design and evaluation of signal processing systems.  
 
-El desarrollo de un “código” de MATLAB que toma como entrada una señal de voz humana afectada (manipulada para añadirle distorsiones como cortes, ruido, etc.)  y mediante procesos de tratamiento de la señal genere como salida una señal de audio correspondiente a la voz original de la entrada con un porcentaje menor de distorsión; implementando funciones propias que realicen muestreos para poder analizar las señales con propiedades vistas en el curso de señales discretas.
+**Keywords—** SDR, GNU Radio, signal processing, accumulator, differentiator, statistics.
 
-\section{FUNDAMENTACIÓN TEÓRICA}
- 
-    Las señales de voz se caracterizan por no ser estacionarias y tener variaciones lentas en el dominio del tiempo, por lo que normalmente se procesan en periodos cortos de tiempo, entre 5 y 30 ms, los cuales se aproximan a señales cuasiperiodicas permitiendo clasificar la voz como sonoro, sordo o silencio. [primera referencia]
-    El tono de voz viene determinado por la frecuencia fundamental de las ondas sonoras, debido a esto se puede determinar la diferencia entre sonidos graves, agudos o medios, las cuales son medidas en ciplos por segundo o Hercios (Hz). Para lograr percibir un sonido este debe estar en el rando de audicion de 20 a 20000 Hz. La frecuencia  fundamental de la voz varia dependiendo de si es una voz masculina o femenina, ya que, en el caso de los hombres el rango de la frecuencia oscila entre 110-130 Hz y en el caso de las mujeres entre 200-230 Hz.
+---
 
-    Por otro lado esta la intensidad sonora la cual se define como la cantidad de energia acustica que tiene el sonido. Esta intensidad viene dada por la potencia, que a su vez viene dada de la amplitud que permite distinguir si el sonido es fuerte o debil. Los sonidos que percibe el oido humano tienen que superar el umbral auditivo y no llegar al umbral de dolor (0-140 dB)
+## I. Introduction
+Software Defined Radio (SDR) plays a fundamental role in modern telecommunications due to its flexibility and adaptability. A single platform can support multiple standards and handle a wide variety of signals using only a computer and specialized software. In this laboratory, blocks such as accumulator, differentiator, and statistical operators (mean, RMS, quadratic mean, power spectral density, and standard deviation) were implemented in Python within GNU Radio. These tools allow the analysis of digital signals in real time and serve as a basis for advanced applications in telecommunications.  
 
-    Los filtros de audio tienen como finalidad atenuar la señal de manera progresiva desde una frecuencia determinada dependiendo del tipo de filtro que se requiera usar. Su funcion  recae en limpiar señales de frecuencias no deseadas, ya que, las pistas de audio generalmente cuentan con ruido de baja o alta frecuencia los cuales ocupan energia del sistema. Asimismo sirven para proteger el sistema de daños por exceso de energia de bajas frecuencias las cuales no son controladas.[segunda referencia]
+---
 
+## II. Methodology
+The practice was divided into three stages:  
 
+1. **Repository Management in GitHub:** Creation of the main branch *Practica_1* and organization of required folders. Git commands were used to manage and synchronize changes with the cloud.  
 
-\section{OBJETIVOS}
-\subsection{Objetivo general}
-    Implementar una herramienta en matlab la cual sea capaz de procesar señales de voz humana afectadas por factores externos, aplicando tecnicas de tratamiento y filtración que permitan reconstruir la señal de voz obteniendo una salida lo mas limpia posible.
-\subsection{Objetivos especificos}
-\begin{itemize}
-    \item Investigar  y seleccionar tecnicas de procesamiento digital  de señales adecuadas para la reduccion de ruido en selales de voz, tales como filtado adaptativo y tecnicas basadas en las transformadas de Fourier.
-    \item Implementar funciones personalizadas en Matlab las cuales satisfagan los parametros requeridos para el procesamiento y limpieza de voz
-    \item Establecer una evaluación del desempeño de la herramienta que sea realista y, a su vez, objetiva, considerando escenarios de uso prácticos y diversos niveles de afectación de las señales.  
-\end{itemize}
+2. **Implementation in GNU Radio:** Python blocks were programmed following the laboratory guide. Functions such as accumulator, differentiator, and statistical operators were tested using blocks like *Vector Source*, *QT GUI Time Sink* and *QT GUI Number Sink*.  
 
+3. **Documentation:** The results and contributions were integrated collaboratively in this report hosted in the GitHub repository.  
 
-\section{METODOLOGÍA A SEGUIR}
-\begin{enumerate}
+---
 
-    \item Investigación sobre características y aspectos de la voz humana, frecuencia de operacion y armonicos caracteriscos de la voz humana.
-    \item Componentes de una señal de audio de voz en matlab. 
-    \item Tratamiento de señales de audio en matlab.
+## III. Results
 
-    \item 
+### A. Accumulator  
+The accumulator estimates the total energy in a signal window and reduces noise since the sum of many random samples tends to cancel unwanted variations.  
 
-    digitalizacion de la señal, frecuencia dominante,caracteristicas,filtrado.
+- **Fig. 1:** Flow diagram of the accumulator.  
+- **Fig. 2–4:** Input/output signals with variations in the number of samples and sampling frequency.  
 
-    escalas de mel "
-    buscar como funciona y como dan caracteristicas distintivas a las señales de audio "
-\end{enumerate}
+It was observed that the accumulator generates a ramp depending on the amplitude of the input square signal. Increasing the number of samples modifies the shape due to memory effect, while changing the sampling frequency mainly alters the speed of data acquisition without affecting amplitude.  
 
+### B. Differentiator  
+The differentiator emphasizes rapid changes in the input signal and behaves like a high-pass filter by attenuating low-frequency components.  
 
+- **Fig. 5:** Flow diagram of the differentiator.  
+- **Fig. 6–7:** Input/output signals with different numbers of samples.  
 
-\bibliographystyle{ieeetr}
-\bibliography{citas}
+When the number of samples increased, pulses were more spaced; with fewer samples, changes occurred one after another, since the differentiator depends on differences between adjacent samples.  
 
-\end{document}
+### C. Statistical Analysis  
+A flow diagram was designed to compute statistical values from the input vector.  
+
+| Vector de Entrada | Nº Muestras | F. Muestreo [kHz] | RMS | Media | Desv. Est. | Promedio Tiempo | Media Cuadrática |
+|-------------------|-------------|-------------------|-----|-------|-------------|-----------------|------------------|
+| (1,1,1,1,-1,-1,-1,-1) | 8  | 32  | 1       | 0     | 1       | 1     | 1     |
+| (1,1,-1,-1)       | 4  | 32  | 1       | 0     | 1       | 1     | 1     |
+| (1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1) | 16 | 32 | 1 | 0.00073 | 1 | 1 | 1 |
+| (1,1,1,1,-1,-1,-1,-1) | 8  | 2   | 1       | 0     | 1       | 1     | 1     |
+| (1,1,1,1,-1,-1,-1,-1) | 8  | 64  | 1       | 0     | 1       | 1     | 1     |
+| (1,1,1,1,-1,-1,-1,-1) | 8  | 320 | 1       | 0     | 1       | 1     | 1     |
+| (1,2,7,5,-2,-1,-8,-3) | 8  | 32  | 4.43011 | 0.125 | 4.448247 | 19.625 | 19.625 |
+| (3,2,2,4,-2,-5,-6,-2) | 8  | 32  | 3.57071 | -0.5  | 3.535534 | 12.75  | 12.75  |
+
+*Table I. Statistical results for different input signals.*  
+
+Observations:  
+- Changing the **number of samples** affected mainly the mean, oscillating between positive and negative values.  
+- Modifying the **sampling frequency** did not change statistical values, as it only redefines how often samples are taken, not their amplitude.  
+- Varying the **input vector** produced the greatest changes, as it simulates random signals.  
+- The **time average** and **quadratic mean** remained equal in all cases.  
+
+---
+
+## IV. Application: Audio Systems
+In audio systems, statistics are essential to describe and control signal properties. The **mean** detects unwanted DC offsets, while the **RMS** indicates perceived loudness, useful for normalization. The **standard deviation** reflects signal dynamics, key for compression processes. The **time average** and **quadratic mean** provide energy estimation of the signal. These measures allow efficient analysis, optimization, and processing in tasks such as mixing, equalization, noise reduction, and audio transmission.  
+
+---
+
+## V. Conclusion
+The laboratory demonstrated the flexibility of GNU Radio to implement digital processing blocks such as accumulator, differentiator, and statistical operators. It was confirmed that statistical analysis provides powerful tools to understand signal behavior and has direct applications in fields such as audio and telecommunications. The integration of GitHub in the workflow also simulated collaborative practices widely used in the industry.  
+
+---
+
+## References
+[1] GNU Radio Foundation. “GNU Radio Documentation.” [Online]. Available: https://www.gnuradio.org  
+[2] P. B. Kenington, *RF and Baseband Techniques for Software Defined Radio.* Artech House, 2005.  
+[3] J. Mitola, “The Software Radio Architecture,” *IEEE Communications Magazine,* vol. 33, no. 5, pp. 26–38, May 1995.  
+
+---
