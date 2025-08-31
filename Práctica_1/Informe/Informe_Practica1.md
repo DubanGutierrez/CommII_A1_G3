@@ -90,6 +90,90 @@ Se pudo observar como en la figura 4 como al aumentar el valor de la frecuencia 
 
 ### **Diferenciador**
 
+El diferenciador es una herramienta que permite ver de manera clara y precisa los cambios rápidos que ocurren a lo largo de la señal, además puede ser útil como un filtro pasa-altas, dado que en el dominio de la frecuencia el diferenciador atenua las componentes cercanas a 0.
+
+### **Diagrama de Flujo del Acumulador**
+Para el diagrama de flujo se usó una frecuencia de muestreo por defecto de 32 kHz debido a que con esta se evita la condición de aliasing al tener más del doble de la frecuencia máxima; un vector source con 8 muestras, un throttle el cual ayuda a regular la velocidad a la que se ejecuta el diagrama de flujo cuando este no está y se está trabajando solo con simulación.
+
+<div align="center">
+
+  <img width="958" height="463" alt="image" src="https://github.com/user-attachments/assets/d84070e6-69e0-4802-a0e2-8436e65ec593" alt="Diagrama de flujo del acumulador" width="400">
+
+  <p><b>Figura 5. Diagrama de Flujo del Diferenciador.</p>
+
+</div>
+
+<div align="center">
+
+<img width="1890" height="950" alt="image" src="https://github.com/user-attachments/assets/c4b1fdac-3016-4e2b-9255-606c6f4910c1" alt="acumulador con 8 muestras y fs=32k" width="400">
+
+  <p><b>Figura 6. Señal de entrada y salida del acumulador con parámetros iniciales.</p>
+
+</div>
+
+De la figura 6 se pudo observar como ante una señal cuadrada que varía entre A (amplitud) y -A, el diferenciador presenta una de rampas las cuales tienden a ser pulso que representan los cambios bruzcos sufridos por la señal de entrada a lo largo del tiempo.
+
+</div>
+
+<div align="center">
+
+<img width="1896" height="955" alt="image" src="https://github.com/user-attachments/assets/c9eb452e-4759-41fd-8adc-832cf2e9cae1" alt="acumulador con 8 muestras y fs=32k" width="400">
+
+  <p><b>Figura 7. Señal de entrada y salida del acumulador con una variación en el número de muestras.</p>
+
+</div>
+
+Del análisis de al figura 7 se tiene que el número de muestras está directamente relacionado con el tiempo entre la generación de cada pulso, a mayor número de muestras, mayor fue el tiempo entre cada pulso, mientras que a menor número de muestras los pulsos se generaron uno después del otro, esto se debe a que mientras haya una mayor cantidad de muestras habrá menor disperción entre los datos y por lo tanto menos cambios bruzcos.
+
+
 ### **Parte Estadística**
+
+Se tiene el diagrama de flujo para el modelo de acumulador, este permite obtener la energía total en una ventana de tiempo de la señal y ayuda a eliminar el ruido dado que al sumar muchas muestras de una señal aleatoria el ruido tiende a cancelarse.
+
+### **Diagrama de Flujo del Acumulador**
+Para el diagrama de flujo se usó una frecuencia de muestreo por defecto de 32 kHz debido a que con esta se evita la condición de aliasing al tener más del doble de la frecuencia máxima; un vector source con 8 muestras, un throttle el cual ayuda a regular la velocidad a la que se ejecuta el diagrama de flujo cuando este no está y se está trabajando solo con simulación.
+
+<div align="center">
+
+alt="Diagrama de flujo del acumulador" width="400">
+
+  <p><b>Figura 1. Diagrama de Flujo del Acumulador.</p>
+
+</div>
+
+<div align="center">
+
+ alt="acumulador con 8 muestras y fs=32k" width="400">
+
+  <p><b>Figura 2. Señal de entrada y salida del acumulador con parámetros iniciales.</p>
+
+</div>
+
+De la figura 2 se pudo observar como ante una señal cuadrada que varía entre A (amplitud) y -A, el acumulador genera una señal rampa que aumenta o disminuye dependiendo de los valores de la señal de entrada.
+
+</div>
+
+<div align="center">
+
+ alt="acumulador con 8 muestras y fs=32k" width="400">
+
+  <p><b>Figura 3. Señal de entrada y salida del acumulador con una variación en el número de muestras.</p>
+
+</div>
+
+En la figura 3 se observó como al variar el número de muestras se genera un sobre salto en la señal de salida, esto se debe a que al ser un acumulador la señal guarda memoria donde cada muestra depende de lo anterior, por esto la señal de salida cambia en ciertos puntos su forma y amplitud.
+
+</div>
+
+<div align="center">
+
+ alt="acumulador con 8 muestras y fs=32k" width="400">
+
+  <p><b>Figura 4. Señal de entrada y salida del acumulador con una variación en la frecuencia de muestreo.</p>
+
+</div>
+
+Se pudo observar como en la figura 4 como al aumentar el valor de la frecuencia de muestreo no se presentan grandes cambios en la señal de salida debido a que las muestras van a estar más cerca una de otra, mientras que si se disminuye se tarda un gran tiempo en iniciar el acumulador a funcionar, esto se debe a que el acumulador recibe menos información en tiempo real.
+
 
 ### **Aplicación**
