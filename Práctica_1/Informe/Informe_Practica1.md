@@ -36,7 +36,7 @@ En la segunda etapa, se empleó la aplicación de GNU Radio para programar los b
 3. Documentación y entrega: 
 En la última etapa  se integraron los aportes individuales de los integrantes y se procedió a elaborar el presente informe de manera colaborativa dentro del repositorio.
 
-### **Resultados**
+## **Resultados**
 Los resultados obtenidos en la práctica para cada uno de los bloques propuestos se muestra a continuación, además se agrega una apliación de la estadística vista en clase:
 
 ### **Acumulador**
