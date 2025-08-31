@@ -140,7 +140,7 @@ Para el diagrama de flujo se usó una frecuencia de muestreo por defecto de 32 k
   <p><b>Figura 8. Diagrama de Flujo de la Parte Estadística.</p>
 
 | Vector de Entrada | Número de Muestras | Frecuencia de Muestreo [kHz]| RMS | Media | Desviación Estándar | Promedio Tiempo | Media Cuadrática |
-|--------------------|------------------------|-----|-------|---------------------|-----------------|------------------|
+|-------------------|-------------------|------------------------------|-----|-------|---------------------|-----------------|------------------|
 | (1,1,1,1,-1,-1,-1,-1) | 8 | 32 | 1 | 0 | 1 | 1 | 1 |
 | (1,1,-1,-1)| 4 | 32 | 1 | 0 | 1 | 1 | 1 |
 | (1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1) | 16 | 32 | 1 | 0.00073 | 1 | 1 | 1 |
@@ -149,33 +149,12 @@ Para el diagrama de flujo se usó una frecuencia de muestreo por defecto de 32 k
 | (1,1,1,1,-1,-1,-1,-1) | 8 | 320 | 1 | 0 | 1 | 1 | 1 |
 | (1,2,7,5,-2,-1,-8,-3) | 8 | 32 | 4.43011 | 0.125 | 4.448247 | 19.625 | 19.625 |
 | (3,2,2,4,-2,-5,-6,-2) | 8 | 32 | 3.570714 | -0.5 | 3.535534 | 12.75 | 12.75 |
-<p><b>Tabla 1. Datos Obtenidos para la Parte Estadística.</p>
 
+<p><b>Tabla 1. Datos Obtenidos para la Parte Estadística.</p>
+</b>
+</div>
 De la tabla 1 se pudo observar como los parámetros de entrada afectan de manera muy directa a los resultados estadísticos obtenidos, en primera instancia se varió el número de muestras en donde se puede apreciar en la tabla 1 como se ve afectada únicamente la media, pues ésta comienza a oscilar entre un valor A positivo a un valor -A, luego se vavrió la frecuencia de muestreo, pero no se envidenció ningún cambio en los valores estadísticos esto se debe a que la frecuencia de muestreo define cada cuanto se toma una muestra, pero esto no afecta a los valores del vector, por último se cambió el vector de entrada, para este caso variaron de gran manera los valores obtenidos dado que este vector simula una señal aleatoria, también se pudo notar como los valores de "promedio de tiempo" y "media cuadrática" son iguales para todos los casos.
 
-</div>
-
-<div align="center">
-
- alt="acumulador con 8 muestras y fs=32k" width="400">
-
-  <p><b>Figura 3. Señal de entrada y salida del acumulador con una variación en el número de muestras.</p>
-
-</div>
-
-En la figura 3 se observó como al variar el número de muestras se genera un sobre salto en la señal de salida, esto se debe a que al ser un acumulador la señal guarda memoria donde cada muestra depende de lo anterior, por esto la señal de salida cambia en ciertos puntos su forma y amplitud.
-
-</div>
-
-<div align="center">
-
- alt="acumulador con 8 muestras y fs=32k" width="400">
-
-  <p><b>Figura 4. Señal de entrada y salida del acumulador con una variación en la frecuencia de muestreo.</p>
-
-</div>
-
-Se pudo observar como en la figura 4 como al aumentar el valor de la frecuencia de muestreo no se presentan grandes cambios en la señal de salida debido a que las muestras van a estar más cerca una de otra, mientras que si se disminuye se tarda un gran tiempo en iniciar el acumulador a funcionar, esto se debe a que el acumulador recibe menos información en tiempo real.
-
-
 ### **Aplicación**
+### **Sistema de Audio**
+En los sistemas de audio, la estadística es fundamental para describir y controlar las propiedades de las señales sonoras. La media permite identificar si la señal está centrada en cero o presenta un desplazamiento indeseado (DC). El RMS se utiliza para medir la potencia percibida del sonido, siendo clave en normalización y control de volumen. La desviación estándar refleja la variabilidad o dinámica del audio, útil en procesos como la compresión para equilibrar partes suaves y fuertes. El promedio en el tiempo y la media cuadrática permiten estimar la energía media de la señal. En conjunto, estas medidas estadísticas permiten analizar, procesar y optimizar la calidad del sonido en aplicaciones como mezcla, ecualización, reducción de ruido y transmisión de audio.
