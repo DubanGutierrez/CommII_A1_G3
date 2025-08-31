@@ -1,92 +1,98 @@
-# Laboratorio 2. Programación en Radio Definida por Software (GNU Radio)  
+% To load packages
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english]{babel}
+\usepackage[letter,left=2.0cm,top=2.0cm,right=2.0cm,bottom=4.0cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{graphicx,color,enumerate}	
+\usepackage{multirow} 
+\usepackage{multicol}
+\usepackage{authblk}
+\usepackage{charter}    % Font typeface
+\usepackage{titling}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
 
-**Autores:**  
-Danny Carolina Sierra Téllez (2220409), Duban Andretti Gutierréz León (2220396)  
-Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones  
-Universidad Industrial de Santander  
+\definecolor{uisgreen}{RGB}{125,194,3}
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
 
-**Fecha:** 31 de agosto de 2025  
+\setlength{\droptitle}{-1.8cm}
+\pagestyle{fancy}
 
----
+%%% Header definition
+\headheight=60pt 						% header height 
+\renewcommand{\headrulewidth}{4pt}
+\let\oldheadrule\headrule% Copy \headrule into \oldheadrule
+\renewcommand{\headrule}{\color{uisgreen}\oldheadrule}
 
-## Abstract
-This paper presents the implementation of concepts related to Software Defined Radio (SDR) using GNU Radio. The work included the use of GitHub repositories in a collaborative environment and the development of Python blocks such as accumulator, differentiator, and statistical operators for signal analysis in the time domain. These implementations strengthened the understanding of digital communication systems in real time and demonstrated the flexibility of GNU Radio for the design and evaluation of signal processing systems.  
+\fancyhead[L]							% left header 
+{	\begin{minipage}{2.5cm}
+		\includegraphics[scale=0.3]{./figs/uislogohoriz.png} 
+	\end{minipage}	
+	\begin{minipage}{5cm}
+	    \color{uisgreen}
+	    \footnotesize {\textsf{Universidad Industrial de Santander\\ 
+				Escuela de Ingenierías Eléctrica, \\
+				Electrónica y de Telecomunicaciones	}}	
+	\end{minipage}
+}
+\fancyhead[R] { 							%la "C" indica al centro
+	\begin{minipage}{8cm}
+	    \color{uisgreen}
+	    \begin{flushright}
+    	    \small{\textsf{Laboratorio de COMUNICACIONES I (27139)}} \\
+            \normalsize{\textsf{\dochead: \textbf{\docsubhead}}} \\
+    	    \small{\textsf{Grupo: \textbf{\teamname}}}
+	    \end{flushright}
+    \end{minipage}
+    \begin{minipage}{1.2cm}
+		\includegraphics[width=1.0\textwidth]{./figs/logoE3T.png} 
+	\end{minipage}	
+}
+%%% End header definition
 
-**Keywords—** SDR, GNU Radio, signal processing, accumulator, differentiator, statistics.
+\lstset{ frame=Ltb,
+     framerule=0pt,
+     aboveskip=0.5cm,
+     framextopmargin=3pt,
+     framexbottommargin=3pt,
+     framexleftmargin=0.4cm,
+     framesep=0pt,
+     rulesep=.4pt,
+     backgroundcolor=\color{gray97},
+     rulesepcolor=\color{black},
+     %
+     stringstyle=\ttfamily\color{red!50!brown},
+     showstringspaces = false,
+     basicstyle=\small\ttfamily,
+     commentstyle=\color{gray45},
+     keywordstyle=\color{blue}\bfseries,
+     %
+     numbers=left,
+     numbersep=15pt,
+     numberstyle=\tiny,
+     numberfirstline = false,
+     breaklines=true,
+   }
 
----
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+   {\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
 
-## I. Introduction
-Software Defined Radio (SDR) plays a fundamental role in modern telecommunications due to its flexibility and adaptability. A single platform can support multiple standards and handle a wide variety of signals using only a computer and specialized software. In this laboratory, blocks such as accumulator, differentiator, and statistical operators (mean, RMS, quadratic mean, power spectral density, and standard deviation) were implemented in Python within GNU Radio. These tools allow the analysis of digital signals in real time and serve as a basis for advanced applications in telecommunications.  
+\lstdefinestyle{consola}
+   {basicstyle=\scriptsize\bf\ttfamily,
+    backgroundcolor=\color{gray75},
+   }
 
----
+\lstdefinestyle{C}
+   {language=C,
+   }
 
-## II. Methodology
-The practice was divided into three stages:  
-
-1. **Repository Management in GitHub:** Creation of the main branch *Practica_1* and organization of required folders. Git commands were used to manage and synchronize changes with the cloud.  
-
-2. **Implementation in GNU Radio:** Python blocks were programmed following the laboratory guide. Functions such as accumulator, differentiator, and statistical operators were tested using blocks like *Vector Source*, *QT GUI Time Sink* and *QT GUI Number Sink*.  
-
-3. **Documentation:** The results and contributions were integrated collaboratively in this report hosted in the GitHub repository.  
-
----
-
-## III. Results
-
-### A. Accumulator  
-The accumulator estimates the total energy in a signal window and reduces noise since the sum of many random samples tends to cancel unwanted variations.  
-
-- **Fig. 1:** Flow diagram of the accumulator.  
-- **Fig. 2–4:** Input/output signals with variations in the number of samples and sampling frequency.  
-
-It was observed that the accumulator generates a ramp depending on the amplitude of the input square signal. Increasing the number of samples modifies the shape due to memory effect, while changing the sampling frequency mainly alters the speed of data acquisition without affecting amplitude.  
-
-### B. Differentiator  
-The differentiator emphasizes rapid changes in the input signal and behaves like a high-pass filter by attenuating low-frequency components.  
-
-- **Fig. 5:** Flow diagram of the differentiator.  
-- **Fig. 6–7:** Input/output signals with different numbers of samples.  
-
-When the number of samples increased, pulses were more spaced; with fewer samples, changes occurred one after another, since the differentiator depends on differences between adjacent samples.  
-
-### C. Statistical Analysis  
-A flow diagram was designed to compute statistical values from the input vector.  
-
-| Vector de Entrada | Nº Muestras | F. Muestreo [kHz] | RMS | Media | Desv. Est. | Promedio Tiempo | Media Cuadrática |
-|-------------------|-------------|-------------------|-----|-------|-------------|-----------------|------------------|
-| (1,1,1,1,-1,-1,-1,-1) | 8  | 32  | 1       | 0     | 1       | 1     | 1     |
-| (1,1,-1,-1)       | 4  | 32  | 1       | 0     | 1       | 1     | 1     |
-| (1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1) | 16 | 32 | 1 | 0.00073 | 1 | 1 | 1 |
-| (1,1,1,1,-1,-1,-1,-1) | 8  | 2   | 1       | 0     | 1       | 1     | 1     |
-| (1,1,1,1,-1,-1,-1,-1) | 8  | 64  | 1       | 0     | 1       | 1     | 1     |
-| (1,1,1,1,-1,-1,-1,-1) | 8  | 320 | 1       | 0     | 1       | 1     | 1     |
-| (1,2,7,5,-2,-1,-8,-3) | 8  | 32  | 4.43011 | 0.125 | 4.448247 | 19.625 | 19.625 |
-| (3,2,2,4,-2,-5,-6,-2) | 8  | 32  | 3.57071 | -0.5  | 3.535534 | 12.75  | 12.75  |
-
-*Table I. Statistical results for different input signals.*  
-
-Observations:  
-- Changing the **number of samples** affected mainly the mean, oscillating between positive and negative values.  
-- Modifying the **sampling frequency** did not change statistical values, as it only redefines how often samples are taken, not their amplitude.  
-- Varying the **input vector** produced the greatest changes, as it simulates random signals.  
-- The **time average** and **quadratic mean** remained equal in all cases.  
-
----
-
-## IV. Application: Audio Systems
-In audio systems, statistics are essential to describe and control signal properties. The **mean** detects unwanted DC offsets, while the **RMS** indicates perceived loudness, useful for normalization. The **standard deviation** reflects signal dynamics, key for compression processes. The **time average** and **quadratic mean** provide energy estimation of the signal. These measures allow efficient analysis, optimization, and processing in tasks such as mixing, equalization, noise reduction, and audio transmission.  
-
----
-
-## V. Conclusion
-The laboratory demonstrated the flexibility of GNU Radio to implement digital processing blocks such as accumulator, differentiator, and statistical operators. It was confirmed that statistical analysis provides powerful tools to understand signal behavior and has direct applications in fields such as audio and telecommunications. The integration of GitHub in the workflow also simulated collaborative practices widely used in the industry.  
-
----
-
-## References
-[1] GNU Radio Foundation. “GNU Radio Documentation.” [Online]. Available: https://www.gnuradio.org  
-[2] P. B. Kenington, *RF and Baseband Techniques for Software Defined Radio.* Artech House, 2005.  
-[3] J. Mitola, “The Software Radio Architecture,” *IEEE Communications Magazine,* vol. 33, no. 5, pp. 26–38, May 1995.  
-
----
