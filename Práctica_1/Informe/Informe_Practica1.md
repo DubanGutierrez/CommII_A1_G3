@@ -3,7 +3,7 @@
 
 ### Integrantes
 - **Danny Carolina Sierra Téllez** - 2220409
-- **Duban Andretti Gutierréz León** - 2220
+- **Duban Andretti Gutierréz León** - 2220396
 
 Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones  
 Universidad Industrial de Santander
@@ -36,5 +36,34 @@ En la segunda etapa, se empleó la aplicación de GNU Radio para programar los b
 3. Documentación y entrega: 
 En la última etapa  se integraron los aportes individuales de los integrantes y se procedió a elaborar el presente informe de manera colaborativa dentro del repositorio.
 
+### **Resultados**
+Los resultados obtenidos en la práctica para cada uno de los bloques propuestos se muestra a continuación, además se agrega una apliación de la estadística vista en clase:
 
+### **Acumulador**
+Se tiene el diagrama de flujo para el modelo de acumulador, este permite obtener la energía total en una ventana de tiempo de la señal y ayuda a eliminar el ruido dado que al sumar muchas muestras de una señal aleatoria el ruido tiende a cancelarse.
 
+**Diagrama de Flujo del Acumulador**
+Para el diagrama de flujo se usó 
+
+<div align="center">
+
+  <img width="921" height="446" alt="diagrama de flujo"  src="https://github.com/user-attachments/assets/3351beac-048d-4e51-92ff-991926e34c38"
+ alt="Diagrama de flujo del acumulador" width="400">
+
+  <p><b>Figura 1. Diagrama de Flujo del Acumulador.</p>
+
+</div>
+
+<div align="center">
+
+<img width="1905" height="976" alt="image" src="https://github.com/user-attachments/assets/f04305f9-8ce2-4180-a343-5a31dd18094f" alt="acumulador con 8 muestras y fs=32k" width="400">
+
+  <p><b>Figura 2. Señal de entrada y salida del acumulador.</p>
+
+</div>
+
+### **Diferenciador**
+
+### **Parte Estadística**
+
+### **Aplicación**
