@@ -92,7 +92,7 @@ Se pudo observar como en la figura 4 como al aumentar el valor de la frecuencia 
 
 El diferenciador es una herramienta que permite ver de manera clara y precisa los cambios rápidos que ocurren a lo largo de la señal, además puede ser útil como un filtro pasa-altas, dado que en el dominio de la frecuencia el diferenciador atenua las componentes cercanas a 0.
 
-### **Diagrama de Flujo del Acumulador**
+### **Diagrama de Flujo del Diferenciador**
 Para el diagrama de flujo se usó una frecuencia de muestreo por defecto de 32 kHz debido a que con esta se evita la condición de aliasing al tener más del doble de la frecuencia máxima; un vector source con 8 muestras, un throttle el cual ayuda a regular la velocidad a la que se ejecuta el diagrama de flujo cuando este no está y se está trabajando solo con simulación.
 
 <div align="center">
@@ -130,26 +130,28 @@ Del análisis de al figura 7 se tiene que el número de muestras está directame
 
 Se tiene el diagrama de flujo para el modelo de acumulador, este permite obtener la energía total en una ventana de tiempo de la señal y ayuda a eliminar el ruido dado que al sumar muchas muestras de una señal aleatoria el ruido tiende a cancelarse.
 
-### **Diagrama de Flujo del Acumulador**
+### **Diagrama de Flujo de la Parte Estadística**
 Para el diagrama de flujo se usó una frecuencia de muestreo por defecto de 32 kHz debido a que con esta se evita la condición de aliasing al tener más del doble de la frecuencia máxima; un vector source con 8 muestras, un throttle el cual ayuda a regular la velocidad a la que se ejecuta el diagrama de flujo cuando este no está y se está trabajando solo con simulación.
 
 <div align="center">
 
-alt="Diagrama de flujo del acumulador" width="400">
+<img width="860" height="700" alt="image" src="https://github.com/user-attachments/assets/06b88c3c-5468-41f9-99ab-792ac0cd0db3" alt="Diagrama de flujo del acumulador" width="400">
 
-  <p><b>Figura 1. Diagrama de Flujo del Acumulador.</p>
+  <p><b>Figura 8. Diagrama de Flujo de la Parte Estadística.</p>
 
-</div>
+| Vector de Entrada | Número de Muestras | Frecuencia de Muestreo [kHz]| RMS | Media | Desviación Estándar | Promedio Tiempo | Media Cuadrática |
+|--------------------|------------------------|-----|-------|---------------------|-----------------|------------------|
+| (1,1,1,1,-1,-1,-1,-1) | 8 | 32 | 1 | 0 | 1 | 1 | 1 |
+| (1,1,-1,-1)| 4 | 32 | 1 | 0 | 1 | 1 | 1 |
+| (1,1,1,1,1,1,1,1,-1,-1,-1,-1,-1,-1,-1,-1) | 16 | 32 | 1 | 0.00073 | 1 | 1 | 1 |
+| (1,1,1,1,-1,-1,-1,-1) | 8 | 2 | 1 | 0 | 1 | 1 | 1 |
+| (1,1,1,1,-1,-1,-1,-1)| 8 | 64 | 1 | 0 | 1 | 1 | 1 |
+| (1,1,1,1,-1,-1,-1,-1) | 8 | 320 | 1 | 0 | 1 | 1 | 1 |
+| (1,2,7,5,-2,-1,-8,-3) | 8 | 32 | 4.43011 | 0.125 | 4.448247 | 19.625 | 19.625 |
+| (3,2,2,4,-2,-5,-6,-2) | 8 | 32 | 3.570714 | -0.5 | 3.535534 | 12.75 | 12.75 |
+<p><b>Tabla 1. Datos Obtenidos para la Parte Estadística.</p>
 
-<div align="center">
-
- alt="acumulador con 8 muestras y fs=32k" width="400">
-
-  <p><b>Figura 2. Señal de entrada y salida del acumulador con parámetros iniciales.</p>
-
-</div>
-
-De la figura 2 se pudo observar como ante una señal cuadrada que varía entre A (amplitud) y -A, el acumulador genera una señal rampa que aumenta o disminuye dependiendo de los valores de la señal de entrada.
+De la tabla 1 se pudo observar como los parámetros de entrada afectan de manera muy directa a los resultados estadísticos obtenidos, en primera instancia se varió el número de muestras en donde se puede apreciar en la tabla 1 como se ve afectada únicamente la media, pues ésta comienza a oscilar entre un valor A positivo a un valor -A, luego se vavrió la frecuencia de muestreo, pero no se envidenció ningún cambio en los valores estadísticos esto se debe a que la frecuencia de muestreo define cada cuanto se toma una muestra, pero esto no afecta a los valores del vector, por último se cambió el vector de entrada, para este caso variaron de gran manera los valores obtenidos dado que este vector simula una señal aleatoria, también se pudo notar como los valores de "promedio de tiempo" y "media cuadrática" son iguales para todos los casos.
 
 </div>
 
