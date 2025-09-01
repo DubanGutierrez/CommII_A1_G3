@@ -158,3 +158,7 @@ De la tabla 1 se pudo observar como los parámetros de entrada afectan de manera
 ### **Aplicación**
 ### **Sistema de Audio**
 En los sistemas de audio, la estadística es fundamental para describir y controlar las propiedades de las señales sonoras, la media permite identificar si la señal está centrada en cero o presenta un desplazamiento indeseado (DC), el RMS se utiliza para medir la potencia percibida del sonido, siendo clave en normalización y control de volumen, la desviación estándar refleja la variabilidad o dinámica del audio, útil en procesos como la compresión para equilibrar partes suaves y fuertes, el promedio en el tiempo y la media cuadrática permiten estimar la energía media de la señal. En conjunto, estas medidas estadísticas permiten analizar, procesar y optimizar la calidad del sonido en aplicaciones como mezcla, ecualización, reducción de ruido y transmisión de audio.
+
+## **Referencia**
+[1] H. Ortega Boada y O. M. Reyes Torres, *Comunicaciones digitales basadas en radio definida por software*.  
+1ª ed. Bucaramanga, Colombia: Editorial UIS, 2019. [En línea].  Disponible: https://sites.google.com/saber.uis.edu.co/comdig
