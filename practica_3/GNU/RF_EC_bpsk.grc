@@ -163,7 +163,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    const: '0'
+    const: '1'
     maxoutbuf: '0'
     minoutbuf: '0'
     type: float
@@ -171,7 +171,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1101, 363]
+    coordinate: [1064, 376.0]
     rotation: 180
     state: true
 - name: analog_random_source_x_0
@@ -280,9 +280,9 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [798, 174]
+    coordinate: [808, 208.0]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: epy_block_0
   id: epy_block
   parameters:
@@ -311,7 +311,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1102, 213]
+    coordinate: [1080, 200.0]
     rotation: 0
     state: true
 - name: epy_block_0_0
@@ -337,7 +337,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1102, 285]
+    coordinate: [1088, 296.0]
     rotation: 0
     state: true
 - name: epy_block_0_1
@@ -1094,7 +1094,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1294, 320]
+    coordinate: [1304.0, 312]
     rotation: 270
     state: true
 - name: virtual_sink_0_0_0_0_0
@@ -1107,7 +1107,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1244, 339]
+    coordinate: [1224.0, 320]
     rotation: 270
     state: true
 - name: virtual_source_0_0
@@ -1164,8 +1164,8 @@ blocks:
     state: true
 
 connections:
-- [analog_const_source_x_0, '0', epy_block_0, '1']
-- [analog_const_source_x_0, '0', epy_block_0_0, '1']
+- [analog_const_source_x_0, '0', epy_block_0, '0']
+- [analog_const_source_x_0, '0', epy_block_0_0, '0']
 - [analog_random_source_x_0, '0', blocks_char_to_float_0, '0']
 - [blocks_add_const_vxx_0, '0', blocks_multiply_const_vxx_0_0, '0']
 - [blocks_char_to_float_0, '0', blocks_add_const_vxx_0, '0']
@@ -1173,11 +1173,12 @@ connections:
 - [blocks_char_to_float_0, '0', virtual_sink_0_0, '0']
 - [blocks_multiply_const_vxx_0_0, '0', interp_fir_filter_xxx_0, '0']
 - [blocks_multiply_const_vxx_0_0, '0', virtual_sink_0_0, '0']
+- [blocks_multiply_const_vxx_0_1, '0', epy_block_0, '1']
+- [blocks_multiply_const_vxx_0_1, '0', epy_block_0_0, '1']
 - [epy_block_0, '0', virtual_sink_0_0_0_0, '0']
 - [epy_block_0_0, '0', virtual_sink_0_0_0_0_0, '0']
 - [epy_block_0_1, '0', blocks_multiply_const_vxx_0, '0']
-- [interp_fir_filter_xxx_0, '0', epy_block_0, '0']
-- [interp_fir_filter_xxx_0, '0', epy_block_0_0, '0']
+- [interp_fir_filter_xxx_0, '0', blocks_multiply_const_vxx_0_1, '0']
 - [interp_fir_filter_xxx_0, '0', epy_block_0_1, '0']
 - [interp_fir_filter_xxx_0, '0', virtual_sink_0_0_0, '0']
 - [virtual_source_0_0, '0', qtgui_time_sink_x_0_0, '0']
