@@ -1,0 +1,120 @@
+\documentclass[conference]{IEEEtran}
+
+% Paquetes útiles
+\usepackage[utf8]{inputenc}   % Acentos
+\usepackage{amsmath}          % Símbolos matemáticos
+\usepackage{graphicx}         % Imágenes
+\usepackage{cite}             % Referencias IEEE
+\usepackage{url}              % Enlaces
+
+\begin{document}
+
+% ------------------------------------------------
+% TÍTULO Y AUTORES
+% ------------------------------------------------
+\title{PRÁCTICA 1: TÍTULO DE LA PRÁCTICA}
+
+\author{
+    \IEEEauthorblockN{Primer Integrante (Código)}
+    \IEEEauthorblockA{Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones \\
+    Universidad Industrial de Santander \\
+    Email: correo1@correo.com}
+    \and
+    \IEEEauthorblockN{Segundo Integrante (Código)}
+    \IEEEauthorblockA{Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones \\
+    Universidad Industrial de Santander \\
+    Email: correo2@correo.com}
+}
+
+\maketitle
+
+% ------------------------------------------------
+% DECLARACIÓN DE ORIGINALIDAD
+% ------------------------------------------------
+\section*{Declaración de Originalidad y Responsabilidad}
+Los autores de este informe certifican que el contenido aquí presentado es original y ha sido elaborado de manera independiente. 
+Se han utilizado fuentes externas únicamente como referencia y han sido debidamente citadas. 
+Asimismo, los autores asumen plena responsabilidad por la información contenida en este documento.  
+
+Uso de IA: [Indicar si se usó IA y para qué aspectos específicos, por ejemplo: 
+``Se utilizó ChatGPT para reformular secciones del texto y verificar gramática, 
+pero el contenido técnico fue desarrollado íntegramente por los autores.'']
+
+% ------------------------------------------------
+% ABSTRACT
+% ------------------------------------------------
+\begin{abstract}
+Este documento presenta la práctica realizada en el laboratorio de comunicaciones, abordando los conceptos de [tema]. 
+Se analizan los procedimientos desarrollados, los resultados obtenidos y las conclusiones más relevantes.
+\end{abstract}
+
+\begin{IEEEkeywords}
+palabra clave 1, palabra clave 2, palabra clave 3
+\end{IEEEkeywords}
+
+% ------------------------------------------------
+% INTRODUCCIÓN
+% ------------------------------------------------
+\section{Introduction}
+En esta sección se presenta la fundamentación teórica de la práctica. 
+Algunas preguntas orientadoras pueden ser:
+\begin{itemize}
+    \item ¿Qué tan importante es la teoría de muestreo en el procesamiento de señales?
+    \item ¿Qué pasa cuando se alcanza el límite de Nyquist?
+    \item ¿Cuándo es importante interpolar o diezmar una señal?
+\end{itemize}
+
+% ------------------------------------------------
+% PROCEDIMIENTO
+% ------------------------------------------------
+\section{Procedure}
+Se describen los procesos efectuados durante la práctica de laboratorio.  
+Ejemplo de preguntas guía:
+\begin{itemize}
+    \item ¿Cómo se alcanza el límite de Nyquist y qué ocurre cuando se disminuye de este?
+    \item ¿Qué sucede al interpolar y al diezmar una señal en GNURadio?
+    \item ¿Cómo se determina la frecuencia máxima de una señal experimentalmente?
+\end{itemize}
+
+% ------------------------------------------------
+% RESULTADOS
+% ------------------------------------------------
+\section{Results}
+Aquí se incluyen los resultados obtenidos de los experimentos. 
+Pueden presentarse en tablas, gráficas o capturas de pantalla.
+
+\begin{table}[h]
+\centering
+\caption{Parámetros de la señal}
+\begin{tabular}{|c|c|}
+\hline
+Parámetro & Valor \\
+\hline
+Frecuencia (Hz) & 1000 \\
+Amplitud (V) & 5 \\
+Ciclo útil (\%) & 50 \\
+\hline
+\end{tabular}
+\end{table}
+
+% ------------------------------------------------
+% CONCLUSIONES
+% ------------------------------------------------
+\section{Conclusions}
+En esta sección se presentan de manera sintética los principales hallazgos de la práctica. 
+No se deben repetir los resultados, sino resaltar aprendizajes y puntos relevantes.  
+
+% ------------------------------------------------
+% REFERENCIAS
+% ------------------------------------------------
+\begin{thebibliography}{1}
+
+\bibitem{proakis2014}
+J. Proakis and M. Salehi, \textit{Fundamentals of Communication Systems}, 2nd ed. England: Pearson Education Limited, 2014, pp. 164--165, 346.
+
+\bibitem{smith2012}
+G. Smith, ``Sampling in digital communications,'' \textit{IEEE Transactions on Communications}, vol. 60, no. 5, pp. 123--130, May 2012.
+
+\end{thebibliography}
+
+\end{document}
