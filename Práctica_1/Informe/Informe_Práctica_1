@@ -1,0 +1,264 @@
+\documentclass{journal}[IEEEtran, twocolumn] 
+\usepackage{graphicx} % No modificar
+
+% PASO 1. Reemplace "Práctica 1" por el número de la práctica que corresponda
+\newcommand{\dochead}{Práctica 1}     
+
+% PASO 2. Verifique el título de la práctica corresponda.
+\newcommand{\docsubhead}{PROGRAMACIÓN EN RADIO DEFINIDA POR SOFTWARE (GNURADIO)}  
+
+% PASO 3. Reemplace "B1A - 02" por el grupo de la asignatura y el número de su grupo de laboratorio
+\newcommand{\teamname}{A1 - G3}     
+
+% PASO 4. OPCIONAL: Reemplace "\docsubhead \docsubhead" por el título del documento en caso de requerirse.
+\newcommand{\titulo}{\dochead: \docsubhead}      
+
+% PASO 5. Reemplace "31 de diciembre de 2030" por la fecha de su documento
+\newcommand{\fecha}{31 de agosto de 2025}      
+
+\input{./plantilla.tex}             % No modificar
+
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{1ex}{1ex}  % Ajusta el espacio antes y después de las secciones
+
+
+\begin{document}  
+% No modificar
+
+\title{\textbf{\titulo}}            % No modificar
+
+% PASO 6. Agregar aquí el nombre y código de los autores.  
+\author{
+Danny Carolina Sierra Téllez - 2220409 \\
+Duban Andretti Gutiérrez León- 2220396\\
+}
+\affil{\small{\url{https://github.com/LabComu2/CommII_A1_G3.git}}}
+\affil{\small{Escuela de Ingenierías Eléctrica, Electrónica y de Telecomunicaciones} \\ % No modificar
+\small{Universidad Industrial de Santander}} % No modificar
+
+\date{\fecha}                       % No modificar
+
+\maketitle                          % No modificar
+\thispagestyle{fancy}               % No modificar
+
+%---------------------------------------------------------------
+% PASO 7. **..**...****INICIE SU DOCUMENTO DESDE AQUI***...**...
+%%%%% A PARTIR DE AQUÍ EDITE EL DOCUMENTO PARA AGREGAR TODO EL CONTENIDO REQUERIDO PARA EL ENTREGABLE CORRESPONDIENTE
+%%%%  Todo el contenido a partir de este punto es SOLAMENTE ILUSTRATIVO.
+%
+% Para sus imformes, BORRE TODO el contenido de aquí en adelante  EXCEPTO la última línea que contiene el comando: \end{document}
+
+
+
+
+\begin{multicols}{2}
+%\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+In this practical, software-defined radio (SDR) concepts were implemented using the GNU Radio platform. The work included familiarization with managing GitHub repositories from a collaborative programming environment, integrating the local terminal with the cloud to simulate industry-like work. Programming blocks were developed in Python to implement functions such as an accumulator, a differentiator, and other statistical operators on time-domain signals. These implementations strengthened the student's understanding of real-time digital communications systems and demonstrated the flexibility of GNU Radio for the design, analysis, and evaluation of signal processing systems. 
+\end{abstract}\\  
+ \textbf{Palabras clave: Blocks simulate, GNU Radio, Accumulator, Differentiator } \color{black}
+ \\
+
+
+\section{Introducción}
+
+La Radio Definida por Software (SDR) cumple un papel fundamental en las telecomunicaciones modernas gracias a su flexibilidad y adaptabilidad. Esta tecnología permite que una misma plataforma soporte múltiples estándares y pueda soportar una amplia variedad de señales sólo con usar una computadora y software especializado, reconfigurando tareas relacionadas con la transmisión y recepción de señales de radiofrecuencia.\cite{garg2007}.\\\\
+\noindent En el marco de la práctica, se implementaron bloques en Python dentro de GNU Radio para simular funciones clásicas como un acumulador, diferenciador y operadores estadísticos de las señales en el tiempo como: la media, media cuadrática, valor RMS, densidad de potencia espectral y desviación estándar. Dichos bloques ofrecen una herramienta útil para analizar el comportamiento de señales digitales en tiempo real y constituyen una base para el desarrollo de aplicaciones más avanzadas en escenarios de la vida real en telecomunicaciones.
+
+\setlength{\parskip}{0pt}  % Sin espacio entre párrafos
+
+\section{Metodología}
+
+Para dar inicio a la práctica de laboratorio, se tuvo en cuenta la guía facilitada por parte del profesor.
+La práctica se desarrolló en 3 etapas principales:
+
+    \setlength{\itemsep}{\baselineskip} 
+    \setlength{\parskip}{0pt}   % Controla espacio entre párrafos
+    
+\begin{itemize}
+
+    \setlength{\itemsep}{\baselineskip} 
+    \setlength{\parskip}{0pt}   % Controla espacio entre párrafos
+    
+    \item \textbf{Gestión del repositorio en GitHub:}  
+    En esta primera etapa se creó la rama principal de esta entrega, denominada \texttt{Practica\_1}. Dentro de esta rama se organiza la estructura de carpetas requeridas en la guía de laboratorio. Además, se ejecutaron los diferentes comandos de Git en el repositorio local, lo que permitió evidenciar los cambios y el progreso del trabajo en la plataforma de GitHub.
+
+    \item \textbf{Implementación en GNU Radio:}  
+    En la segunda etapa, se empleó la aplicación de GNU Radio para programar los bloques en Python, tomando como referencia el libro guía mencionado en la práctica sección 1.2.0.1 \cite{Ortega2019}. Se corrigieron errores y se ejecutaron las diferentes funciones de acumulador, diferenciador y operadores estadísticos. Además, se incorporaron bloques adicionales como \texttt{Vector Source}, \texttt{QT GUI Time Sink} y \texttt{QT GUI Number Sink} para la generación y visualización de las señales en tiempo real.
+
+    \item \textbf{Documentación y entrega:}  
+    En la última etapa se integraron los aportes individuales de los integrantes y se procedió a elaborar el presente informe de manera colaborativa dentro del repositorio.
+    
+\end{itemize}
+
+
+\\
+
+      { \scriptsize
+      \centering
+        \begin{tabular}{|c|c|c|c|c|c|} 
+             \hline
+            Ruido & Media & Media & RMS &Potencia& Desviación \\ 
+             &  &cuadrada& & promedio  &estandar \\ \hline
+           0 (1)  & 0  &  0.5002 & 0.7073 &0.5002 &0.7073 \\ \hline
+           0 (2)   & 0 & 0.5000 &  0.7071& 0.5000& 0.7071\\ \hline
+           0.25 (1)  & 0  & 0.5003& 0.7073 &0.5003 &0.7073 \\ \hline
+           0.25 (2)   & 0 & 0.5001&  0.7071& 0.5002& 0.7072\\ \hline
+           0.05 (1)  &0.0001  & 0.5028 &  0.7091& 0.5028 & 0.7088\\ \hline
+           0.05 (2) &0  & 0.5008 &  0.7077& 0.5008 &0.7077 \\ \hline
+           0.1 (1)  & 0 &0.5113 & 0.7152 & 0.5112 &0.7141 \\ \hline
+           0.1 (2) &  0.0002& 0.5100 & 0.7138& 0.5100 & 0.7137\\ \hline
+        \end{tabular}
+        \\Tabla 3.1. Resultados de los bloques de estadística(1) y aplicación(2) para diferentes niveles de ruido en una señal seno.
+        \label{tab:my_label}
+}
+    \\
+
+\section{Resultados}
+
+Los resultados obtenidos en la práctica para cada uno de los bloques propuestos se muestran a continuación. Además, se agrega una aplicación de la estadística vista en clase.
+
+\subsection{Acumulador}
+
+El modelo de acumulador permite obtener la energía total en una ventana de tiempo de la señal y ayuda a eliminar el ruido, dado que al sumar muchas muestras de una señal aleatoria el ruido tiende a cancelarse.\\
+
+\noindent
+\textbf{Diagrama de Flujo del Acumulador:}  
+Se utiliza una frecuencia de muestreo por defecto de 32 kHz para evitar la condición de aliasing, un \textit{Vector Source} con 8 muestras y un \textit{Throttle} que regula la velocidad de ejecución en simulación. 
+En la Fig. 1 se muestra el diagrama correspondiente al acumulador.
+
+ {\centering
+    \includegraphics[scale=0.20]{figs/figura1.png}\\
+    Fig.1 Diagrama de Bloques para el Acumulador. 
+\label{fig:punto2_acumula}
+    }\smallskip\\
+
+
+
+{\centering
+    \includegraphics[scale=0.15]{figs/figura2.png}\\
+    Fig.2 Señal de entrada y salida del acumulador con parámetros iniciales. 
+    \label{fig:señal de entrada}
+    }\smallskip\\
+
+En la Fig. 2 se observa que ante una señal cuadrada que varía entre $A$ y -$A$, el acumulador genera una señal tipo rampa que aumenta o disminuye dependiendo de los valores de entrada. \smallskip\\
+
+{\centering
+    \includegraphics[scale=0.15]{figs/figura3.png}\\
+    Fig.3 Señal de entrada y salida del acumulador con una variación en el número de muestras.
+    \label{fig:variación en el número de muestras}
+    }\smallskip\\
+
+En la Fig. 3 se aprecia cómo al variar el número de muestras se genera un sobre-salto en la señal de salida, debido a que el acumulador guarda memoria de las muestras anteriores.
+
+{\centering
+    \includegraphics[scale=0.15]{figs/figura4.png}\\
+    Fig.4 Señal de entrada y salida del acumulador con una variación en la frecuencia de muestreo.
+    \label{fig:variación en la frecuencia de muestreo}
+    }\smallskip\\
+
+En la Fig. 4 se muestra que al aumentar la frecuencia de muestreo no presenta grandes cambios en la señal de salida, mientras que al disminuirla el acumulador tarda más en iniciar su funcionamiento.
+
+\subsection{Diferenciador}
+
+El diferenciador es una herramienta que permite resaltar los cambios rápidos que ocurren en la señal, funcionando también como un filtro pasa-altas, ya que atenúa componentes cercanas a 0 en el dominio de la frecuencia.\smallskip\\
+
+{\centering
+    \includegraphics[scale=0.15]{figs/figura5.png}\\
+    Fig 5. Diagrama de Flujo del Diferenciador.
+    \label{fig:Parte estadística}
+    }
+
+{\centering
+    \includegraphics[scale=0.15]{figs/figura6.png}\\
+    Fig 6. Señal de entrada y salida del diferenciador con parámetros iniciales.
+    \label{fig:Diferenciador con parametros iniciales}
+    }
+
+De la Fig. 6 se logró observar como ante una señal cuadrada que varía entre A (amplitud) y -A, el diferenciador presenta una de rampas las cuales tienden a ser pulso que representan los cambios bruzcos sufridos por la señal de entrada a lo largo del tiempo.
+
+{\centering
+    \includegraphics[scale=0.15]{figs/figura7.png}\\
+    Fig 7. Señal de entrada y salida del diferenciador con una variación en el número de muestras.
+    \label{fig:Parte estadística2}
+    }
+
+Del análisis de la Fig. 7 se tiene que el número de muestras está directamente relacionado con el tiempo entre la generación de cada pulso, a mayor número de muestras, mayor fue el tiempo entre cada pulso, mientras que a menor número de muestras los pulsos se generaron uno después del otro, esto se debe a que mientras haya una mayor cantidad de muestras habrá menor disperción entre los datos y por lo tanto menos cambios bruzcos.
+
+\subsection{Parte Estadística}
+{\centering
+    \includegraphics[scale=0.15]{figs/figura8.png}\\
+    Fig 8. Diagrama de Flujo de la Parte Estadística.
+    \label{fig:Parte estadística}
+    }\smallskip\\
+En la Fig. 8 se muestra el diagrama de flujo correspondiente a la parte estadística. A partir de este flujo se generaron diferentes señales y se calcularon los parámetros principales de cada vector de entrada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{figs/estadistica_flujo.png}
+    \caption{Diagrama de Flujo de la Parte Estadística.}
+    \label{fig:estadistica_flujo}
+\end{figure}
+
+Los resultados obtenidos para cada vector de entrada se resumen en la Tabla~\ref{tab:estadistica}. 
+
+{ \scriptsize
+\centering
+\begin{tabular}{|p{0.8cm}|p{0.8cm}|c|c|c|c|c|c|c|} 
+    \hline
+    Número de & Frecuencia de & RMS & Media & Desviación & Promedio & Media\\ Muestras & Muestreo [kHz] & & & Estandar & tiempo & Cuadrática \\ \hline
+    8 & 32 & 1 & 0 & 1 & 1 & 1 \\ \hline
+    4 & 32 & 1 & 0 & 1 & 1 & 1 \\ \hline
+    16 & 32 & 1 & 0.73m & 1 & 1 & 1 \\ \hline
+    8 & 2 & 1 & 0 & 1 & 1 & 1 \\ \hline
+    8 & 64 & 1 & 0 & 1 & 1 & 1 \\ \hline
+    8 & 320 & 1 & 0 & 1 & 1 & 1 \\ \hline
+    8 & 32 & 4.43 & 0.125 & 4.44 & 19.62 & 19.62 \\ \hline
+    8 & 32 & 3.57 & -0.5 & 3.53 & 12.75 & 12.75 \\ \hline
+\end{tabular}
+\\Tabla 1. Resultados de los bloques de estadística sin mostrar los vectores de entrada.
+\label{tab:sinVector}
+}
+
+
+
+
+
+
+De la Tabla~\ref{tab:sinVector} se observa que los parámetros de entrada afectan directamente los resultados: el número de muestras modifica principalmente la media, la frecuencia de muestreo no cambia los valores estadísticos, y la variación del vector de entrada altera significativamente los resultados.
+
+\subsection{Aplicación en Sistemas de Audio}
+
+En los sistemas de audio, la estadística es fundamental para describir y controlar las señales sonoras:  
+
+\begin{itemize}
+    \item[$\ast$] La \textbf{media} identifica desplazamientos indeseados (DC).
+    \item[$\ast$] El \textbf{RMS} mide la potencia percibida del sonido.
+    \item[$\ast$] La \textbf{desviación estándar} refleja la variabilidad del audio, útil en compresión.
+    \item[$\ast$] El \textbf{promedio en el tiempo} estima el valor medio de la señal.
+    \item[$\ast$] La \textbf{media cuadrática} representa la energía media de la señal.
+\end{itemize}
+
+Estas medidas permiten analizar, procesar y optimizar la calidad del sonido en mezcla, ecualización, reducción de ruido y transmisión.
+
+\section{Conclusiones}
+\\
+El número de muestras influye directamente en la media de la señal variando su valor de amplitud entre $A$ y -$A$, mientras que la frecuencia de muestreo no afecta en gran manera a la salida.\\\\
+\noindent
+El modelo del diferenciador es realmente útil para poder detectar los cambios bruzcos (perturbaciones) que se presentan en una señal.\\\\
+\noindent
+Se identificó que aumentar la frecuencia de muestreo no genera cambios visibles en la salida, ya que las muestras se ubican más cercanas entre sí; en cambio, al disminuir la frecuencia, el acumulador presenta un retardo porque recibe menos información en tiempo real.\\\\
+\noindent
+En el acumulador el número de muestras afecta directamente la señal de salida, generando sobre saltos y variaciones en amplitud debido a la dependencia de cada muestra respecto a la anterior.\\\\
+\noindent
+Se comprobó que el número de muestras está relacionado con la dispersión temporal de los pulsos, a mayor cantidad de muestras, los pulsos se distribuyen en intervalos más amplios, por el contrario, con menos muestras, los pulsos se distribuyen más cerca y sin espacio entre ellos.
+
+
+
+% NO MODIFIQUE NI ELIMINE ESTA PARTE PARA QUE  APAREZCAN LAS REFERENCIAS
+\bibliographystyle{IEEEtran}
+\bibliography{bibliografia.bib}
+
+\end{multicols}
+\end{document}{}
